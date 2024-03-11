@@ -10,11 +10,11 @@ public class PandemicSilcoAct1 {
 		String Direccion = " ";
 		int contadorCaracterEsp = 0;
 		String[] separar;
-		String Ciudad;
+		String Ciudad = null;
 		int[] numeros = new int[3];
 		String Numeros1 = "";// String que almacena el numero
 		String Numeros2 = "";// String que almacena el codigo postal
-		String[] Ciudades;// String que almacena las ciudades
+		String[] Ciudades = null;// String que almacena las ciudades
 		String[] valores = new String[2];
 
 		// Mostramos por pantalla la instruccion al usuario y permitimos la entrada de
@@ -47,6 +47,21 @@ public class PandemicSilcoAct1 {
 		// Separamos por cada caracter especial
 		separar = Direccion.split(";");
 
+		SepararDatosDireccion(Ciudad, Ciudades, numeros, Numeros1, Numeros2, valores, separar);
+
+		prac.close();
+	}
+
+	// ************************************************************************************
+	// ** Nombre de la función: SepararDatosDireccion
+	// ** Explicación del que hace la función: Esta función separa con el metodo
+	// split y los almacena en diferentes posiciones
+	// ** Parámetros de entrada: String Ciudad, String[] Ciudades, int[] numeros,
+	// String Numeros1, String Numeros2, String[] valores, String[] separar
+	// ** Parámetros de salida: -----
+	// ************************************************************************************
+	public static void SepararDatosDireccion(String Ciudad, String[] Ciudades, int[] numeros, String Numeros1,
+			String Numeros2, String[] valores, String[] separar) {
 		// Definimos las posiciones de las separaciones
 		Ciudad = separar[0];
 		Numeros1 = separar[1];
@@ -57,6 +72,19 @@ public class PandemicSilcoAct1 {
 		numeros[1] = Integer.parseInt(valores[0]); // Almacenar el primer numero antes de la coma
 		numeros[2] = Integer.parseInt(valores[1]); // Almacenar el segundo numero despues de la coma
 
+		ResultadoDatosDireccion(Ciudad, Ciudades, numeros, Numeros1, Numeros2, valores, separar);
+	}
+
+	// ************************************************************************************
+	// ** Nombre de la función: ResultadoDatosDireccion
+	// ** Explicación del que hace la función: Muestra por pantalla las diferentes
+	// partes con los resultados
+	// ** Parámetros de entrada: String Ciudad, String[] Ciudades, int[] numeros,
+	// String Numeros1, String Numeros2, String[] valores, String[] separar
+	// ** Parámetros de salida: -----
+	// ************************************************************************************
+	public static void ResultadoDatosDireccion(String Ciudad, String[] Ciudades, int[] numeros, String Numeros1,
+			String Numeros2, String[] valores, String[] separar) {
 		// Mostramos el resultado por pantalla
 		System.out.print("Silco actúa en " + Ciudad + " con los números " + numeros[0] + ", " + numeros[1] + " y "
 				+ numeros[2] + " y cuyas ciudades colindantes son ");
@@ -70,6 +98,5 @@ public class PandemicSilcoAct1 {
 		}
 		System.out.println(".");
 
-		prac.close();
 	}
 }
