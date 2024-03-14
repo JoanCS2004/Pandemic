@@ -12,12 +12,17 @@ public class PandemicSilcoAct2 {
         int i = 0;
         int coordenada1;
         int coordenada2;
+        double distancia;
+        int x1 = 0;
+        int x2 = 0;
+        int y1 = 0;
+        int y2 = 0;
 
         FileReader fr = null;
         BufferedReader br;
 
         try {
-            fr = new FileReader("E:\\PANDEMIC SALAH OMAR JOAN\\PandemicSilco\\ciudades.txt");
+            fr = new FileReader("ciudades.txt");
             br = new BufferedReader(fr);
 
             String linea;
@@ -33,12 +38,14 @@ public class PandemicSilcoAct2 {
 
                 String[] coordenadasSplit = coordenadas[i].split(",");
                 coordenada1 = Integer.parseInt(coordenadasSplit[0]);
+                //System.out.println("cordenada 1 : " + coordenada1);
                 coordenada2 = Integer.parseInt(coordenadasSplit[1]);
+                //System.out.println("cordenada 2 : " + coordenada2);
 
                 System.out.println("La ciudad " + ciudad[i] + " está en las coordenadas " + coordenadas[i] + " sus ciudades colindantes son: ");
 
                 for (int j = 0; j < subCiudades.length; j++) {
-                    int distancia = calcularDistancia(coordenada1, coordenada2, j);
+                    distancia = calcularDistancia(coordenada1, coordenada2, x1, x2, y1, y2);
                     System.out.println(subCiudades[j] + ", que está a una distancia de " + distancia);
                 }
                 i++;
@@ -49,7 +56,14 @@ public class PandemicSilcoAct2 {
         }
     }
 
-    public static int calcularDistancia(int x1, int y1, int x2, int y2) {
-        return (int) Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    
+    public static double calcularDistancia(int coordenada1, int coordenada2, int x1, int y1, int x2, int y2) {
+    	x1 = coordenada1;
+    	System.out.println(x1);
+    	x2 = coordenada2;
+    	System.out.println(x2);
+    	y2 = 300;
+    	y1 = 280;
+    	return (double) Math.sqrt(Math.pow((x2 - x1),2) + Math.pow((y2 - y1),2));
     }
 }
