@@ -46,7 +46,13 @@ public class Act2 {
 
 		return ciudades;
 	}
-
+ //************************************************************************************
+    //** Nombre de la función: escribirCiudadesRedactadas
+    //** Explicación del que hace la función: Escribe la información de las ciudades en un archivo.
+    //** Parámetros de entrada: ciudades - Lista de ciudades.
+    //**                          archivoSalida - Nombre del archivo de salida.
+    //** Parámetros de salida: Ninguno.
+    //************************************************************************************
 	public static void escribirCiudadesRedactadas(ArrayList<String[]> ciudades, String archivoSalida) {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida))) {
 			for (String[] ciudad : ciudades) {
@@ -76,7 +82,13 @@ public class Act2 {
 			e.printStackTrace();
         }
     }
-
+	
+ //************************************************************************************
+    //** Nombre de la función: mostrarCiudadesRedactadas
+    //** Explicación del que hace la función: Muestra la información de las ciudades en la consola.
+    //** Parámetros de entrada: ciudades - Lista de ciudades.
+    //** Parámetros de salida: Ninguno.
+    //************************************************************************************
     public static void mostrarCiudadesRedactadas(ArrayList<String[]> ciudades) {
         for (String[] ciudad : ciudades) {
             String nombreCiudad = ciudad[0];
@@ -99,6 +111,14 @@ public class Act2 {
         }
     }
 
+    //************************************************************************************
+    //** Nombre de la función: calcularDistancia
+    //** Explicación del que hace la función: Calcula la distancia entre dos ciudades.
+    //** Parámetros de entrada: ciudades - Lista de ciudades.
+    //**                          ciudad1 - Nombre de la primera ciudad.
+    //**                          ciudad2 - Nombre de la segunda ciudad.
+    //** Parámetros de salida: double - Distancia entre las dos ciudades.
+    //************************************************************************************
     public static double calcularDistancia(ArrayList<String[]> ciudades, String ciudad1, String ciudad2) {
         double x1 = 0, y1 = 0, x2 = 0, y2 = 0;
 
