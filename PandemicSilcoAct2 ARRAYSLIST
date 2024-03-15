@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.*;
+
+public class PandemicSilcoAct2 {
+
+    public static void main(String[] args) {
+        AsignarDistancia();
+    }
+
+    public static void AsignarDistancia() {
+        List<String> ciudad = new ArrayList<>();
+        List<String> coordenadas = new ArrayList<>();
+        List<String> ciudadesColindantes = new ArrayList<>();
+        List<String> subCiudades = new ArrayList<>();
+        int i = 0;
+        double distancia;
+        FileReader fr = null;
+        BufferedReader br;
+
+        try {
+            fr = new FileReader("ciudades.txt");
+            br = new BufferedReader(fr);
+
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] texto = linea.split(";");
+                ciudad.add(texto[0]);
+                coordenadas.add(texto[2]);
+                ciudadesColindantes.add(texto[3]);
+                i++;
+            }
+
+            for (int j = 0; j < i; j++) {
+                subCiudades = Arrays.asList(ciudadesColindantes.get(j).split(","));
+
+                String[] coordenadasSplit = coordenadas.get(j).split(",");
+                int coordenada1 = Integer.parseInt(coordenadasSplit[0]);
+                int coordenada2 = Integer.parseInt(coordenadasSplit[1]);
+
+                System.out.println("La ciudad " + ciudad.get(j) + " está en las coordenadas " + coordenadas.get(j) + " sus ciudades colindantes son: ");
+
+                for (int k = 0; k < subCiudades.size(); k++) {
+                    distancia = calcularDistancia(subCiudades, coordenada1, coordenada2, subCiudades.get(k));
+                    System.out.println(subCiudades.get(k)+ ", que está a una distancia de " + distancia);
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static double calcularDistancia( List<String> coordenadas, int coordenada1, int coordenada2, String ciudad) {
+        int x1 = coordenada1;
+        int y1 = Integer.parseInt(ciudad.split(" ")[1].replace(";", ""));
+        int x2 = Integer.parseInt(coordenadas.get(i).split(",")[0]);
+        int y2 = Integer.parseInt(coordenadas.get(i).split(",")[1]);
+
+        return Math.sqrt(Math.pow(y2 - y1, 2) + Math.pow(x2 - x1, 2));
+    }
+}
