@@ -4,20 +4,17 @@ import java.util.*;
 public class PandemicSilcoAct2 {
 
     public static void main(String[] args) {
+        AsignarDistancia();
+    }
+
+    public static void AsignarDistancia() {
         String[] ciudad = new String[50];
         String[] coordenadas = new String[50];
         String[] ciudadesColindantes = new String[50];
         String[] subCiudades = new String[50];
         String[] texto = new String[50];
         int i = 0;
-        int coordenada1;
-        int coordenada2;
         double distancia;
-        int x1 = 0;
-        int x2 = 0;
-        int y1 = 0;
-        int y2 = 0;
-
         FileReader fr = null;
         BufferedReader br;
 
@@ -27,9 +24,6 @@ public class PandemicSilcoAct2 {
 
             String linea;
             while ((linea = br.readLine()) != null) {
-                coordenada1 = 0;
-                coordenada2 = 0;
-
                 texto = linea.split(";");
                 ciudad[i] = texto[0];
                 coordenadas[i] = texto[2];
@@ -37,15 +31,13 @@ public class PandemicSilcoAct2 {
                 subCiudades = ciudadesColindantes[i].split(",");
 
                 String[] coordenadasSplit = coordenadas[i].split(",");
-                coordenada1 = Integer.parseInt(coordenadasSplit[0]);
-                //System.out.println("cordenada 1 : " + coordenada1);
-                coordenada2 = Integer.parseInt(coordenadasSplit[1]);
-                //System.out.println("cordenada 2 : " + coordenada2);
+                int coordenada1 = Integer.parseInt(coordenadasSplit[0]);
+                int coordenada2 = Integer.parseInt(coordenadasSplit[1]);
 
-                System.out.println("La ciudad " + ciudad[i] + " está en las coordenadas " + coordenadas[i] + " sus ciudades colindantes son: ");
+                System.out.println("La ciudad " + ciudad[i] + " está en las coordenadas " + coordenadas[i] + "sus ciudades colindantes son: ");
 
                 for (int j = 0; j < subCiudades.length; j++) {
-                    distancia = calcularDistancia(coordenada1, coordenada2, x1, x2, y1, y2);
+                    distancia = calcularDistancia(coordenada1, coordenada2, subCiudades[j]);
                     System.out.println(subCiudades[j] + ", que está a una distancia de " + distancia);
                 }
                 i++;
@@ -56,14 +48,152 @@ public class PandemicSilcoAct2 {
         }
     }
 
-    
-    public static double calcularDistancia(int coordenada1, int coordenada2, int x1, int y1, int x2, int y2) {
-    	x1 = coordenada1;
-    	System.out.println(x1);
-    	x2 = coordenada2;
-    	System.out.println(x2);
-    	y2 = 300;
-    	y1 = 280;
-    	return (double) Math.sqrt(Math.pow((x2 - x1),2) + Math.pow((y2 - y1),2));
+    public static double calcularDistancia(int coordenada1, int coordenada2, String ciudad) {
+        int y2 = 0;
+        int y1 = 0;
+        int x2 = coordenada1;
+        int x1 = coordenada2;
+
+        if (ciudad.equals("San Francisco")) {
+        	y1 = 235;
+            y2 = 315;
+        } else if (ciudad.equals("Chicago")) {
+        	y1 = 300;
+            y2 = 280;
+        } else if (ciudad.equals("Manila")) {
+        	y1 = 350;
+            y2 = 280;
+        } else if (ciudad.equals("Tokio")) {
+        	y1 = 300;
+            y2 = 330;
+        } else if (ciudad.equals("Montreal")) {
+        	y1 = 320;
+            y2 = 320;
+        } else if (ciudad.equals("Atlanta")) {
+        	y1 = 350;
+            y2 = 280;
+        } else if (ciudad.equals("Nueva York")) {
+        	y1 = 380;
+            y2 = 290;
+        } else if (ciudad.equals("Washington")) {
+        	y1 = 360;
+            y2 = 330;
+        } else if (ciudad.equals("Londres")) {
+        	y1 = 700;
+            y2 = 230;
+        } else if (ciudad.equals("Madrid")) {
+        	y1 = 687;
+           y2 = 290;
+        } else if (ciudad.equals("Paris")) {
+        	y1 = 727;
+            y2 = 250;
+        } else if (ciudad.equals("Essen")) {
+        	y1 = 755;
+            y2 = 190;
+        } else if (ciudad.equals("Milan")) {
+        	y1 = 755;
+            y2 = 235;
+        } else if (ciudad.equals("San Petersburgo")) {
+        	y1 = 815;
+            y2 = 210;
+        } else if (ciudad.equals("Los Angeles")) {
+        	y1 = 275;
+            y2 = 355;
+        } else if (ciudad.equals("Mexico DF")) {
+        	y1 = 300;
+            y2 = 385;
+        } else if (ciudad.equals("Bogota")) {
+        	y1 = 400;
+            y2 = 460;
+        } else if (ciudad.equals("Lima")) {
+        	y1 = 395;
+            y2 = 520;
+        } else if (ciudad.equals("Santiago de Chile")) {
+        	y1 = 430;
+            y2 = 620;
+        } else if (ciudad.equals("Buenos Aires")) {
+        	y1 = 453;
+            y2 = 670;
+        } else if (ciudad.equals("Sao Paulo")) {
+        	y1 = 520;
+            y2 = 570;
+        } else if (ciudad.equals("Lagos")) {
+        	y1 = 710;
+            y2 = 450;
+        } else if (ciudad.equals("Kinsasa")) {
+        	y1 = 770;
+            y2 = 540;
+        } else if (ciudad.equals("Jartum")) {
+        	y1 = 815;
+            y2 = 450;
+        } else if (ciudad.equals("Johannesburgo")) {
+        	y1 = 815;
+            y2 = 630;
+        } else if (ciudad.equals("Argel")) {
+        	y1 = 730;
+            y2 = 330;
+        } else if (ciudad.equals("El Cairo")) {
+        	y1 = 820;
+            y2 = 350;
+        } else if (ciudad.equals("Riad")) {
+        	y1 = 895;
+            y2 = 385;
+        } else if (ciudad.equals("Bagdad")) {
+        	y1 = 880;
+            y2 = 320;
+        } else if (ciudad.equals("Moscu")) {
+        	y1 = 890;
+            y2 = 230;
+        } else if (ciudad.equals("Teheran")) {
+        	y1 = 920;
+            y2 = 310;
+        } else if (ciudad.equals("Karachi")) {
+        	y1 = 980;
+            y2 = 355;
+        } else if (ciudad.equals("Nueva Delhi")) {
+        	y1 = 1025;
+            y2 = 330;
+        } else if (ciudad.equals("Calcuta")) {
+        	y1 = 1070;
+            y2 = 370;
+        } else if (ciudad.equals("Madras")) {
+        	y1 = 1035;
+            y2 = 410;
+        } else if (ciudad.equals("Yakarta")) {
+        	y1 = 1150;
+            y2 = 525;
+        } else if (ciudad.equals("Bangkok")) {
+        	y1 = 1120;
+            y2 = 415;
+        } else if (ciudad.equals("Hong Kong")) {
+        	y1 = 1165;
+            y2 = 370;
+        } else if (ciudad.equals("Shanghai")) {
+        	y1 = 1195;
+            y2 = 355;
+        } else if (ciudad.equals("Pekin")) {
+        	y1 = 1175;
+            y2 = 300;
+        } else if (ciudad.equals("Seul")) {
+        	y1 = 1225;
+            y2 = 297;
+        } else if (ciudad.equals("Tokio")) {
+        	y1 = 1280;
+            y2 = 290;
+        } else if (ciudad.equals("Osaka")) {
+        	y1 = 1255;
+            y2 = 320;
+        } else if (ciudad.equals("Taipei")) {
+        	y1 = 1205;
+            y2 = 375;
+        } else if (ciudad.equals("Ho Chi Minh")) {
+        	y1 = 1148;
+            y2 = 429;
+        } else if (ciudad.equals("Sidney")) {
+            y1 = 1320;
+            y2 = 645;
+        }
+
+        return Math.sqrt(Math.pow(y2 - x1, 2) + Math.pow(x2 - y1, 2));
     }
 }
