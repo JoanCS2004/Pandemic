@@ -47,8 +47,7 @@ public class ParametrosXML {
 
 	// ************************************************************************************
 	// ** Nombre de la función: MostrarDatos
-	// ** Explicación del que hace la función: Muestra los datos personales
-	// almacenados previamente
+	// ** Explicación del que hace la función: Muestra los datos almacenados previamente
 	// ** Parámetros de entrada: -----
 	// ** Parámetros de salida: -----
 	// ************************************************************************************
@@ -78,8 +77,7 @@ public class ParametrosXML {
 
 	// ************************************************************************************
 	// ** Nombre de la función: IntroducirOtrosDatos
-	// ** Explicación del que hace la función: Introduce y almacena datos personales
-	// en un fichero existente
+	// ** Explicación del que hace la función: Introduce y almacena datos en un fichero existente
 	// ** Parámetros de entrada: Scanner teclado
 	// ** Parámetros de salida: -----
 	// ************************************************************************************
