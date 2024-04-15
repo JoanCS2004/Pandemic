@@ -1,12 +1,14 @@
-
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class PanelPrincipal extends JPanel implements ActionListener{
-	
+public class PanelPrincipal extends JPanel implements ActionListener {
+
+	private ImageIcon background;
+
 	JButton boton1;
 	JButton boton2;
 	JButton boton3;
@@ -14,12 +16,23 @@ public class PanelPrincipal extends JPanel implements ActionListener{
 	JButton boton5;
 	JButton boton6;
 	JButton boton7;
-	JTextField areaDeTexto;
-	
-	PanelPrincipal(){
-		
+
+	PanelPrincipal() {
+
 		setLayout(new FlowLayout());
-		
+
+		// Carga la imagen de fondo
+		background = new ImageIcon("/img/descarga.jpg");
+
+		// Crea un JLabel con la imagen de fondo
+		JLabel backgroundLabel = new JLabel(background);
+
+		// Ajusta el JLabel para que ocupe todo el espacio disponible
+		backgroundLabel.setLayout(new BorderLayout());
+
+		// Agrega el JLabel con la imagen de fondo al JFrame
+		add(backgroundLabel);
+
 		boton1 = new JButton("Nueva Partida");
 		boton2 = new JButton("Cargar Partida");
 		boton3 = new JButton("Información");
@@ -28,8 +41,6 @@ public class PanelPrincipal extends JPanel implements ActionListener{
 		boton6 = new JButton("Version");
 		boton7 = new JButton("Salir");
 
-		areaDeTexto = new JTextField(20);
-		
 		boton1.addActionListener(this);
 		boton2.addActionListener(this);
 		boton3.addActionListener(this);
@@ -38,7 +49,6 @@ public class PanelPrincipal extends JPanel implements ActionListener{
 		boton6.addActionListener(this);
 		boton7.addActionListener(this);
 
-
 		add(boton1);
 		add(boton2);
 		add(boton3);
@@ -46,8 +56,8 @@ public class PanelPrincipal extends JPanel implements ActionListener{
 		add(boton5);
 		add(boton6);
 		add(boton7);
-
 		
+
 	}
 
 	@Override
