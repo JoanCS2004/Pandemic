@@ -1,6 +1,8 @@
 package login;
 import java.sql.Connection;
 
+import menu.bbdd;
+
 public class menu {
 	public static Connection con;
 
